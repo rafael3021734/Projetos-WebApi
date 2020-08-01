@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Reflection;
 using System.IO;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace webApi.api
 {
@@ -25,18 +27,31 @@ namespace webApi.api
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+             public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.addScoped<IContratoService, ContratoService>();
+            services.addScoped<IGetContrato, GetContrato>();
+            
         }
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info {Title = "webApi.api", Version = "V1"});
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "webApi.api", Version = "V1"});
             });
+        }    
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+            public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSwagger();
+
+            // Habilita o middleware para servir 0 swagger-ui (html, js, css, etc.),
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -47,17 +62,11 @@ namespace webApi.api
             }
 
             app.UseHttpsRedirection();
+            app.UseSwagger();
             app.UseMvc();
             
             // Habilitara p middleware para servir 0 swagger gerado como um endpoint json
-            app.UseSwagger();
-
-            // Habilita o middleware para servir 0 swagger-ui (html, js, css, etc.),
-
-            app.UseSwaggerUI(c =>
-            {
-                char.SwaggerEndpoint("/swagger/v1/swagger.json", "APIUsuarios V1");
-            });
+            
 
 
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj": {}
+    "C:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj": {
+    "C:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj",
+        "projectUniqueName": "C:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj",
         "projectName": "webApi.api",
-        "projectPath": "c:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj",
+        "projectPath": "C:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\webApi.api.csproj",
         "packagesPath": "C:\\Users\\Rafael\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\obj\\",
+        "outputPath": "C:\\Users\\Rafael\\Documents\\Visual Studio Code\\src\\WebApi.api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -39,31 +39,15 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.1, )",
               "autoReferenced": true
-            },
-            "Microsoft.AspNetCore.Authentication": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.Abstractions": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.Core": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Cryptography.Internal": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.DataProtection": {
-              "target": "Package",
-              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
@@ -79,9 +63,13 @@
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[5.5.1, )"
             }
           },
           "imports": [

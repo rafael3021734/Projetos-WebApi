@@ -1,11 +1,13 @@
 using System;
 using System.Threading.Tasks;
-using Giphy.Libs.Models;
+using System.Collections.Generic;
+using WebApi.api.BackServices;
+using WebApi.api.Models;
 
-namespace WebApi.Services
+namespace WebApi.api.Services
 {
     public interface IContratoService
     {
-        Task<Contrato> GetRandomContratoBasedOnSearchCritera(string searchCritera);
+        Task<List<Contrato>> GetRandomContratoBasedOnSearchCritera(Contrato contrato);
     }
 }

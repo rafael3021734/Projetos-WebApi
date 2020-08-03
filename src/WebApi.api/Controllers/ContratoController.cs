@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Giphy.Libs.Services;
+using WebApi.api.Services;
+using WebApi.api.BackServices;
+using WebApi.api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -8,18 +10,18 @@ namespace WebApi.api.Controllers
 {
     public class ContratoController : Controller
     {
-        private readonly IGiphyService _giphyServices;
+        private readonly IContratoService _ContratoServices;
 
-        public ContratoController(IGiphyService giphyService)
+        public ContratoController(IContratoService ContratoService)
         {
-            _giphyServices = giphyService;
+            _ContratoServices = ContratoService;
         }
 
         [HttpGet]
-        [Route("v1/giphy/random/{searchCritera}")]     // defini o url(v1/giphy/random) variavel(searchcritera)
-        public async Task<IActionResult> GetRandomGif(string searchCritera)   //parametro chamada metodo (searchCritera)
+        [Route("api/Contrato")]     // defini o url(v1/giphy/random) variavel(searchcritera)
+        public async Task<IActionResult> GetRandomContrato(Contrato contrato)   //parametro chamada metodo (searchCritera)
         {
-            var result = await _giphyServices.GetRandomGifBasedOnSearchCritera(searchCritera); // metodo de serviço
+            var result = await _ContratoServices.GetRandomContratoBasedOnSearchCritera(contrato); // metodo de serviço
 
             return Ok(result);
         }

@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApi.api.Services;
+using WebApi.api.BackServices;
+using WebApi.api.Models;
 using System.Reflection;
 using System.IO;
 using Microsoft.OpenApi.Models;
@@ -30,10 +33,9 @@ namespace webApi.api
              public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.addScoped<IContratoService, ContratoService>();
-            services.addScoped<IGetContrato, GetContrato>();
-            
-        }
+            services.AddScoped<IContratoService, ContratoService>();
+            services.AddScoped<IGetRandomContrato, GetRandomContrato>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "webApi.api", Version = "V1"});
